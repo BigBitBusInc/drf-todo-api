@@ -5,7 +5,7 @@ build:
     push: true
     useDockerCLI: true
   artifacts:
-  - image: localhost:32000/c1d58cf9cc6b
+    - image: django_be
 deploy:
   kubectl:
     manifests:
