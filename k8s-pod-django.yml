@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: dair-django
-    image: localhost:32000/django_be:latest
+    image: localhost:32000/django_be_pg:latest
     command:
     - bash 
     - -c
