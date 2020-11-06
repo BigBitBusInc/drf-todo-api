@@ -6,8 +6,19 @@ build:
     useDockerCLI: true
   artifacts:
       - image: localhost:32000/django_be_pg
+        #deploy:
+        #kubectl:
+        #manifests:
+        #- k8s-*
 deploy:
-  kubectl:
-    manifests:
-      - k8s-*
+  helm:
+    releases:
+    - name: dair-be
+      namespace: default
+      artifactOverrides:
+        image: localhost:32000/django_be_pg
+        # image: minikube/bigbitbus/bigbitbus-api-server
+      valuesFiles:
+      - /home/devuser/drf-todo-api/dair-be/values.yaml
+      chartPath: /home/devuser/drf-todo-api/dair-be/
 
